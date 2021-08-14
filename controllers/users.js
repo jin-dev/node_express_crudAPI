@@ -1,19 +1,19 @@
 import { v4 as uuid } from 'uuid';
 
 let users = [{
-    id: 1, username: "Jin", age: 25
+    id: 1, username: "Jin Woo Park", age: 33, rating: 5, permission: 1,
 },
 {
-    id: 2, username: "Jin Woo Park",  age: 25
+    id: 2, username: "Yunica",  age: 25, rating: 4, permission: 0,
 },
 {
-    id: 3, username: "Sophia",  age: 23
+    id: 3, username: "Sophia",  age: 23, rating: 5, permission: 1,
 },
 {
-    id: 4, username: "Ji Hye",  age: 23
+    id: 4, username: "Ji Hye",  age: 23, rating: 5, permission: 0,
 },
 {
-    id: 5, username: "Edward", age: 30
+    id: 5, username: "Edward", age: 30, rating: 2, permission: 0,
 },
 ];
 
@@ -59,8 +59,9 @@ export const updateUser =  (req,res) => {
     let user = users.find((user) => user.id == req.params.id);
     
     user.username = req.body.username;
-    user.age = req.body.age;
+    user.rating = req.body.rating;
+    user.permission = req.body.permission;
 
-    console.log(`username has been updated to ${req.body.username}.age has been updated to ${req.body.age}`)
+    console.log(`username has been updated to ${req.body.username}. the rating has been updated to ${req.body.age}`)
     res.send(`The user ID ${req.params.id} is now updated` );
 };
